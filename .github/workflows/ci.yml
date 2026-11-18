@@ -82,6 +82,26 @@ jobs:
       # TEST REPORT
       # ==========================================
 
+      - name: Debug Java test reports
+        if: always()
+        shell: bash
+        run: |
+          echo "Working directory:"
+          pwd
+
+          echo "Generated XML files:"
+          find . -type f -name "*.xml" -print
+
+          echo "Expected Gradle reports:"
+          ls -lah build/test-results/test/ || true
+
+          if compgen -G "build/test-results/test/TEST-*.xml" > /dev/null; then
+            echo "Java JUnit reports found!"
+          else
+            echo "ERROR: Java JUnit reports missing!"
+          fi
+          
+
       - name: Publish test report
         if: always()
         uses: dorny/test-reporter@v2
