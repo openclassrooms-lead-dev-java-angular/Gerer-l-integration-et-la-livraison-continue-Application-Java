@@ -14,15 +14,23 @@ spec:
     spec:
       containers:
       - name: workshop-organizer-db
-      # TODO: add postgres image
+        image: postgres:17
+
         env:
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: workshop-organizer-db-secret
-              key: username
-       # TODO: add the postgres password variable
-        - name: POSTGRES_DB
-          value: workshop-organizer-database
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: workshop-organizer-db-secret
+                key: username
+
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: workshop-organizer-db-secret
+                key: password
+
+          - name: POSTGRES_DB
+            value: workshop-organizer-database
+
         ports:
         - containerPort: 5432
