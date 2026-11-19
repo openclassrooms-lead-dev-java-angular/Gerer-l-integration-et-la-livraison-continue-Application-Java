@@ -66,8 +66,14 @@ compileJava.dependsOn tasks.openApiGenerate
 
 test {
 	useJUnitPlatform()
+
 	testLogging {
 		events "passed", "skipped", "failed"
+	}
+	reports {
+		junitXml {
+			outputLocation = layout.projectDirectory.dir('test-results')
+		}
 	}
 }
 
