@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/openclassrooms-lead-dev-java-angular/Gerer-l-integration-et-la-livraison-continue-Application-Java/compare/v1.1.0...v1.2.0) (2026-11-23)
+
+
+### Features
+
+* **setup-semantic-release:** update dockerfile with filename generate from build stage ([c5e7db7](https://github.com/openclassrooms-lead-dev-java-angular/Gerer-l-integration-et-la-livraison-continue-Application-Java/commit/c5e7db70f93e26b920f18d7d47d48503a7889cd7))
+
 # [1.1.0](https://github.com/openclassrooms-lead-dev-java-angular/Gerer-l-integration-et-la-livraison-continue-Application-Java/compare/v1.0.0...v1.1.0) (2026-11-23)
 
 
