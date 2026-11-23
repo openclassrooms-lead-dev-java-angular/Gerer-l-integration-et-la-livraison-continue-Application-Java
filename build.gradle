@@ -101,3 +101,7 @@ publishing {
 		}
     }
 }
+
+bootWar {
+	archiveFileName = 'workshop-organizer.war'
+}
