@@ -22,7 +22,7 @@ WORKDIR /usr/local/tomcat
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Déploiement du jar dans Tomcat
-COPY --from=build /app/build/libs/workshop-organizer-0.2.4.war \
+COPY --from=build /app/build/libs/workshop-organizer.war \
     /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080

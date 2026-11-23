@@ -4,13 +4,14 @@ on:
   push:
     branches:
       - main
+
   pull_request:
     branches:
       - main
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   checks: write
   packages: write
 
@@ -94,6 +95,9 @@ jobs:
           reporter: java-junit
           fail-on-error: false
 
+  # ==========================================
+  # RELEASE + DOCKER
+  # ==========================================
 
   build:
     name: Build and publish Docker image
@@ -102,6 +106,32 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # --------------------------------------
+      # SEMANTIC RELEASE
+      # --------------------------------------
+
+      - name: Create GitHub Release
+        id: release
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npx --no-install semantic-release
+
+      # --------------------------------------
+      # DOCKER
+      # --------------------------------------
 
       - name: Set Docker image name
         id: image

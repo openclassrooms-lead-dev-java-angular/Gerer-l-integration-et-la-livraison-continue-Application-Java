@@ -41,3 +41,6 @@ out/
 java-generated/
 
 .env
+
+### node ###
+node_modules
