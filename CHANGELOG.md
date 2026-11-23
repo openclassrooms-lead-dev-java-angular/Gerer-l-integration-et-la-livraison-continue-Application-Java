@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/openclassrooms-lead-dev-java-angular/Gerer-l-integration-et-la-livraison-continue-Application-Java/compare/v1.0.0...v1.1.0) (2026-11-23)
+
+
+### Features
+
+* **setup-semantic-release:** add gradle name archive when compile ([5d00f16](https://github.com/openclassrooms-lead-dev-java-angular/Gerer-l-integration-et-la-livraison-continue-Application-Java/commit/5d00f16b64ec6e51206c7546b18ee2051b8da47f))
+
 # 1.0.0 (2026-11-23)
 
 
